@@ -1,0 +1,40 @@
+[
+  {
+    "operation": "shift",
+    "spec": {
+      "inputToMatch": "inputToMatch.@(0)",
+      "valueArray": {
+        "*": "valueArray.@(0)"
+      }
+    }
+  }, {
+    "operation": "shift",
+    "spec": {
+      "valueArray": {
+        "*": {
+          "@(2,inputToMatch.&)": {
+            "#Matched": "result"
+          }
+        }
+      }
+    }
+  },
+  {
+    "operation": "default",
+    "spec": {
+      "result": "Not Matched"
+    }
+  }
+]
+
+==========
+INPUT
+==========
+
+{
+  "valueArray": [
+    "1",
+    "2"
+  ],
+  "inputToMatch": "3"
+}
